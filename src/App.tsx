@@ -1,11 +1,12 @@
 import React from 'react';
-import Index from './components/index'
+import DatePicker from './components/index'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-     <Index/>
+     
+<DatePicker PopUp={false} autoClose={true} />;
     </div>
   );
 }
