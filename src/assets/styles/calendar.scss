@@ -83,3 +83,42 @@
       }
     }
   }
+  .calendarDay{
+    font-size: 10px;
+    width: 400px;
+    display: flex;
+    padding: 17px 17px 0;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-bottom:1px solid #2896c9;
+  }
+  .dayHeader{
+		display: flex;
+		margin: 1px;
+		width: 50px;
+		height: 50px;
+		background-color: yellow;
+		justify-content: center;
+    align-content: center;
+    align-items: center;
+	}
+  .calendarContainer {
+    font-size: 10px;
+    width: 400px;
+    height: 250px;
+    display: flex;
+    padding: 17px;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .dayInThisMonth {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 1px;
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    justify-content: center;
+    align-items: center;
+  }

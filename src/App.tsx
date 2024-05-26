@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
      
-<DatePicker PopUp={false} autoClose={false} />
+<DatePicker PopUp={false} autoClose={false} year={0} month={0} />
 {/* <DatePicker PopUp={false} autoClose={true} /> */}
 
     </div>
