@@ -4,6 +4,9 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  .year-title{
+    margin: auto;
+  }
   .header {
     display: flex;
     justify-content: space-between;
@@ -12,21 +15,41 @@
     font-size: 20px;
     font-weight: bold;
     color: #00796b;
+  
   }
   .calendarContainer {
     display: flex;
     justify-content: center;
     font-size: 10px;
     min-width: 400px;
-    height: 350px;
+    min-height: 350px;
     padding: 17px;
     flex-direction: row;
+    .first-month{
+     
+        border-right:1px solid #00796b;
+      
+    }
+    .one-month{
+    display: flex;
+padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
   }
   
 .button-container {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  button{
+    color: #00796b;
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+  }
   .button {
     padding: 10px 20px;
     border: none;
@@ -50,11 +73,12 @@
 .month-grid{
   gap: 5px;
   background-color: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+
+  
   padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ 
   height: 350px;
+
   .month-name {
     color: #00796b;
     display: flex;
@@ -64,8 +88,8 @@
   .calendarMonth {
     display: grid;
     grid-template-columns: repeat(7, 1fr); 
-  
-  
+   
+   
   }
   .dayInThisMonth {
     width: 40px;

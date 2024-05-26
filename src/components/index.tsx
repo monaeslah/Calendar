@@ -18,8 +18,8 @@ const Index = ({ autoClose, PopUp, year, month }: Props) => {
   const [hoveredDate, setHoveredDate] = useState("");
 
   const toggleCalendar = () => setIsOpen(!isOpen);
-  const nextMonth = () => setCurrentMonth(addMonths(currentMonth, 1));
-  const previousMonth = () => setCurrentMonth(addMonths(currentMonth, -1));
+
+
 
   const selectDate = (date: Date) => {
     const { startDate, endDate } = selectedDay;
@@ -32,39 +32,45 @@ const Index = ({ autoClose, PopUp, year, month }: Props) => {
       {isOpen ? (
         <>
           <div className="header">
-            <button onClick={previousMonth}>&lt;</button>
-            <div className="month-title">{format(currentMonth, "MMMM yyyy")}</div>
-            <button onClick={nextMonth}>&gt;</button>
+            
+            <div className="year-title">{format(currentMonth, " yyyy")}</div>
+           
           </div>
           <div className="calendarContainer">
+            <div className="one-month">
+            <div className="first-month">
          
-            <div>
               <DaysOfWeek />
            
               <FillAllMonth
-              nameOfMonth={format(currentMonth, "MMMM yyyy")}
+              nameOfMonth={format(currentMonth, "MMMM ")}
                 month={currentMonth}
                 selectedDay={selectedDay}
                 selectDate={selectDate}
                 hoveredDate={hoveredDate}
                 setHoveredDate={setHoveredDate}
                 setSelectedDay={setSelectedDay}
+                currentMonth={currentMonth}
+                setCurrentMonth={setCurrentMonth}
               />
           
             </div>
           
-            <div>
+            <div >
               <DaysOfWeek />
             
               <FillAllMonth
                 month={addMonths(currentMonth, 1)}
-                nameOfMonth=  {format(addMonths(currentMonth, 1), "MMMM yyyy")}
+                nameOfMonth=  {format(addMonths(currentMonth, 1), "MMMM ")}
                 selectedDay={selectedDay}
                 selectDate={selectDate}
                 hoveredDate={hoveredDate}
                 setHoveredDate={setHoveredDate}
                 setSelectedDay={setSelectedDay}
+                currentMonth={currentMonth}
+                setCurrentMonth={setCurrentMonth}
               />
+            </div>
             </div>
         
           </div>
