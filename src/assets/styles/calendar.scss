@@ -1,124 +1,239 @@
-// .date-picker{
-//     background-color: aquamarine;
-    
-//     border-radius: 8px;
-//     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-//     padding: 20px;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     .date-display{
-//         input{
-//             padding: 10px;
-//             margin: 10px;
-//             border: 1px solid #ccc;
-//             border-radius: 4px;
-//             width: 150px;
-//         }
-//     }
-//     button{
-//         padding: 10px 20px;
-//         margin-top: 10px;
-//         border: none;
-//         border-radius: 5px;
-//         color: white;
-//         background-color: #008080; /* Teal */
-//         cursor: pointer;
-//         &:disabled {
-//             background-color: #eee;
-//             color: #666;
-//             cursor: not-allowed;
-//           }
-//     }
-//     .reset{
-//         background-color: #ccc;
-//     }
-//     .submit{
-
-//     }
-// }
 .date-picker {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #f0f0f0;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    .calendar-modal{
-      background-color: aquamarine;
-    width: 400px;
-    height: 350px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1)
-    }
-    .input-wrapper {
-      margin: 10px 0;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.days-of-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.input-wrapper {
+  margin: 10px 0;
+}
+
+
+button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: #008080; /* Teal */
+  color: white;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+}
+
+.calendarDay {
+  font-size: 10px;
+  width: 400px;
+  display: flex;
+  padding: 17px 17px 0;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border-bottom: 1px solid #2896c9;
+}
+
+.dayHeader {
+  display: flex;
+  margin: 1px;
+  width: 50px;
+  height: 50px;
+  background-color: yellow;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.calendarContainer {
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
+  min-width: 400px;
+  height: 350px;
+  padding: 17px;
+  flex-direction: row;
+}
+
+.dayInThisMonth {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between the two month containers */
+  margin: 20px 0;
+}
+.month-name {
+  color: #00796b;
+  display: flex;
   
-      label {
-        display: block;
-        margin-bottom: 5px;
-      }
+  justify-content: center;
+}
+.month-grid{
+  gap: 5px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 350px;
+}
+.calendarMonth {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* Ensure seven columns */
+
+}
+
+.dayInThisMonth.selected {
   
-      input {
-        padding: 10px;
-        border-radius: 4px;
-        border: 1px solid #2896c9;
-        width: 200px;
-      }
-    }
-  
-    button {
-      padding: 10px 20px;
-      border-radius: 5px;
-      border: none;
-      margin-top: 10px;
-      cursor: pointer;
-      background-color: #008080; // Teal
-      color: white;
-  
-      &:disabled {
-        background-color: #ccc;
-        color: #666;
-      }
-    }
-  }
-  .calendarDay{
-    font-size: 10px;
-    width: 400px;
-    display: flex;
-    padding: 17px 17px 0;
-    flex-wrap: wrap;
-    flex-direction: row;
-    border-bottom:1px solid #2896c9;
-  }
-  .dayHeader{
-		display: flex;
-		margin: 1px;
-		width: 50px;
-		height: 50px;
-		background-color: yellow;
-		justify-content: center;
-    align-content: center;
-    align-items: center;
-	}
-  .calendarContainer {
-    font-size: 10px;
-    width: 400px;
-    height: 250px;
-    display: flex;
-    padding: 17px;
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
-  .dayInThisMonth {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin: 1px;
-    width: 50px;
-    height: 50px;
-    background-color: green;
-    justify-content: center;
-    align-items: center;
-  }
+  background-color: #00796B;
+  color: #FFFFFF;
+}
+
+.dayInThisMonth.between-selected {
+  background-color: #B2DFDB;
+  color: #000000;
+}
+
+.dayInThisMonth.hovered {
+  background-color: #e0e0e0;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+button:focus {
+  outline: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #00796b;
+}
+
+.header button {
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  transition: background-color 0.3s;
+}
+
+.header button:hover {
+  background-color: #f0f0f0;
+}
+
+.header .month-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.dayInThisMonth {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 16px;
+  color: #000000;
+}
+
+.dayInThisMonth.selected {
+  background-color: #00796B;
+  color: #FFFFFF;
+}
+
+.dayInThisMonth.between-selected {
+  background-color: #B2DFDB;
+  color: #000000;
+}
+
+.dayInThisMonth.hovered {
+  background-color: #E0E0E0;
+}
+
+.time-inputs {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.time-input {
+  display: flex;
+  align-items: center;
+}
+
+.time-input label {
+  font-size: 14px;
+  color: #000000;
+  margin-right: 5px;
+}
+
+.time-input input {
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  font-size: 16px;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button.cancel {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 1px solid #E0E0E0;
+}
+
+.button.add {
+  background-color: #4CAF50;
+  color: #FFFFFF;
+}

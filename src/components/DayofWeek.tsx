@@ -1,16 +1,14 @@
+
 import React from 'react';
 
+const DaysOfWeek: React.FC = () => {
+  const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
-const DaysOfWeek = () => {
   return (
-    <div className='calendarDay'>
-      <div className='dayHeader'>Sunday</div>
-      <div className='dayHeader'>Monday</div>
-      <div className='dayHeader'>Tuesday</div>
-      <div className='dayHeader'>Wednesday</div>
-      <div className='dayHeader'>Thursday</div>
-      <div className='dayHeader'>Friday</div>
-      <div className='dayHeader'>Saturday</div>
+    <div className="days-of-week">
+      {days.map((day, index) => (
+        <div key={index} className='dayHeader'>{day}</div>
+      ))}
     </div>
   );
 };

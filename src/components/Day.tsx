@@ -1,156 +1,68 @@
-import * as React from 'react'
+import React, { useState } from 'react';
+import { DayProps } from '../interfaces';
 
+const Day: React.FC<DayProps> = ({
+  disable,
+  date,
+  selectedDate,
+  selectedDate2,
+  min,
+  max,
+  setHoverDate,
+  setSelectedDate,
+  setSelectedDate2,
+  activeInput,
+  selectDate,
+}) => {
+  const [isHover, setIsHover] = useState(false);
 
-interface propsInterface {
-  disable: boolean;
-  date: string;
-  selectedDate: string;
-  selectedDate2: string;
-  hoveredDate: string;
-  min: string;
-  max: string;
-  setHoverDate(date: string): void;
-  setSelectedDate(date: string): void;
-  setSelectedDate2(date: string): void;
-  activeInput: number;
-}
+  const handleMouseEnter = () => {
+    setIsHover(true);
+    setHoverDate(date);
+  };
 
-interface statesInterface {
-  isHover: boolean;
-}
+  const handleMouseLeave = () => {
+    setIsHover(false);
+    setHoverDate('');
+  };
 
-class Day extends React.Component<propsInterface, statesInterface> {
-  state = {
-    isHover: false,
-  }
-
-  render() {
-    if (this.props.disable) {
-      return <div className='notInMonth' style={{ cursor: 'not-allowed' }}>X</div>
-    } else {
-      if (this.props.activeInput === 1) {
-        if (this.props.min !== '' && this.props.date < this.props.min) {
-          return (
-            <div className='dayInThisMonth'
-              style={{ backgroundColor: 'grey', cursor: 'not-allowed' }}>
-              {this.props.date[8] === '0' ? this.props.date.slice(9, 10) : this.props.date.slice(8, 10)}
-            </div>
-          )
-        }
-
-        if (this.props.max !== '' && this.props.date > this.props.max) {
-          return (
-            <div className='dayInThisMonth'
-              style={{ backgroundColor: 'grey', cursor: 'not-allowed' }}>
-              {this.props.date[8] === '0' ? this.props.date.slice(9, 10) : this.props.date.slice(8, 10)}
-            </div>
-          )
-        }
-
-        return (
-          <div className='dayInThisMonth'
-            style={{
-              ...(this.props.selectedDate === this.props.date ? { backgroundColor: '#000cff', cursor: 'pointer' } : { cursor: 'pointer' }),
-              ...(this.props.selectedDate2 === this.props.date ? { backgroundColor: '#000cff', cursor: 'pointer' } : { cursor: 'pointer' }),
-              ...(this.props.date > this.props.selectedDate && this.props.date < this.props.selectedDate2 ? { backgroundColor: '#56a2f6' } : {}),
-            }}
-            onMouseMove={() => {
-              this.setState({ isHover: true })
-              this.props.setHoverDate(this.props.date)
-            }}
-            onMouseLeave={() => {
-              this.setState({ isHover: false })
-              this.props.setHoverDate('')
-            }}
-            onClick={() => {
-              if (!this.props.selectedDate2) {
-                this.props.setSelectedDate(this.props.date)
-              } else {
-                if (this.props.date < this.props.selectedDate2) {
-                  this.props.setSelectedDate(this.props.date)
-                } else {
-                  this.props.setSelectedDate(this.props.selectedDate2)
-                  this.props.setSelectedDate2(this.props.date)
-                }
-              }
-            }}>
-            {this.props.date[8] === '0' ? this.props.date.slice(9, 10) : this.props.date.slice(8, 10)}
-          </div>
-        )
+  const handleClick = () => {
+    if (activeInput === 1) {
+      if (!selectedDate2 || date < selectedDate2) {
+        setSelectedDate(date);
+      } else {
+        setSelectedDate(selectedDate2);
+        setSelectedDate2(date);
       }
-
-      if (this.props.activeInput === 2 && this.props.selectedDate) {
-        if (this.props.min !== '' && this.props.date < this.props.min) {
-          return (
-            <div className='dayInThisMonth'
-              style={{ backgroundColor: 'grey', cursor: 'not-allowed' }}>
-              {this.props.date[8] === '0' ? this.props.date.slice(9, 10) : this.props.date.slice(8, 10)}
-            </div>
-          )
-        }
-
-        if (this.props.max !== '' && this.props.date > this.props.max) {
-          return (
-            <div className='dayInThisMonth'
-              style={{ backgroundColor: 'grey', cursor: 'not-allowed' }}>
-              {this.props.date[8] === '0' ? this.props.date.slice(9, 10) : this.props.date.slice(8, 10)}
-            </div>
-          )
-        }
-
-        return (
-          <div className='dayInThisMonth'
-            style={{
-              ...(this.props.selectedDate === this.props.date ? { backgroundColor: '#000cff', cursor: 'pointer' } : { cursor: 'pointer' }),
-              ...(this.props.selectedDate2 === this.props.date ? { backgroundColor: '#000cff', cursor: 'pointer' } : { cursor: 'pointer' }),
-              ...(this.props.date > this.props.selectedDate && this.props.date < this.props.selectedDate2 ? { backgroundColor: '#56a2f6' } : {}),
-            }}
-            onMouseMove={() => {
-              this.setState({ isHover: true })
-              this.props.setHoverDate(this.props.date)
-            }}
-            onMouseLeave={() => {
-              this.setState({ isHover: false })
-              this.props.setHoverDate('')
-            }}
-            onClick={() => {
-              if (this.props.date > this.props.selectedDate) {
-                this.props.setSelectedDate2(this.props.date)
-              } else if (this.props.date < this.props.selectedDate) {
-                if (this.props.selectedDate && this.props.selectedDate2) {
-                  this.props.setSelectedDate(this.props.date)
-                } else {
-                  this.props.setSelectedDate2(this.props.selectedDate)
-                  this.props.setSelectedDate(this.props.date)
-                }
-              }
-            }}>
-            {this.props.date[8] === '0' ? this.props.date.slice(9, 10) : this.props.date.slice(8, 10)}
-          </div>
-        )
+    } else if (activeInput === 2 && selectedDate) {
+      if (date > selectedDate) {
+        setSelectedDate2(date);
+      } else {
+        setSelectedDate(date);
       }
-
-      return (
-        <div className='dayInThisMonth'
-          style={{
-            ...(this.props.selectedDate === this.props.date ? { backgroundColor: '#000cff', cursor: 'pointer' } : { cursor: 'pointer' }),
-            ...(this.props.selectedDate2 === this.props.date ? { backgroundColor: '#000cff', cursor: 'pointer' } : { cursor: 'pointer' }),
-            ...(this.state.isHover ? { backgroundColor: '#56a2f6' } : {}),
-          }}
-          onMouseMove={() => {
-            this.setState({ isHover: true })
-          }}
-          onMouseLeave={() => {
-            this.setState({ isHover: false })
-          }}
-          onClick={() => {
-            this.props.setSelectedDate(this.props.date)
-          }}>
-          <div>{this.props.date[8] === '0' ? this.props.date.slice(9, 10) : this.props.date.slice(8, 10)}</div>
-        </div>
-      )
     }
-  }
-}
+    selectDate(new Date(date)); 
+  };
 
-export default Day
+  const renderDayContent = (date: string) => {
+    return date[8] === '0' ? date.slice(9, 10) : date.slice(8, 10);
+  };
+
+  const isBetweenSelected = date > selectedDate && date < selectedDate2;
+  const isSelected = date === selectedDate || date === selectedDate2;
+ 
+
+  return (
+    <div
+      className={`dayInThisMonth${isSelected ? ' selected' : ''}${isBetweenSelected ? ' between-selected' : ''}${isHover ? ' hovered' : ''}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
+      
+    >
+      {renderDayContent(date)}
+    </div>
+  );
+};
+
+export default Day;
