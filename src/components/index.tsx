@@ -3,6 +3,7 @@ import { format, addMonths} from "date-fns";
 import DaysOfWeek from "./DayofWeek";
 import FillAllMonth from "./Month";
 import { SelectedDay } from "../interfaces";
+import TimeControler from "./timeControler";
 
 interface Props {
   PopUp: boolean;
@@ -14,18 +15,32 @@ interface Props {
 const Index = ({ autoClose, PopUp, year, month }: Props) => {
   const [currentMonth, setCurrentMonth] = useState(new Date(year, month ));
   const [selectedDay, setSelectedDay] = useState<SelectedDay>({ startDate: null, endDate: null });
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [hoveredDate, setHoveredDate] = useState("");
 
-  const toggleCalendar = () => setIsOpen(!isOpen);
+  const toggleCalendar = () => setIsOpen(true);
 
 
 
   const selectDate = (date: Date) => {
     const { startDate, endDate } = selectedDay;
-    setSelectedDay(startDate && !endDate ? { startDate, endDate: date } : { startDate: date, endDate: null });
-  };
+    if (startDate && !endDate && date > startDate) {
+      setSelectedDay({ startDate, endDate: date });
+   
+  
+} else if (startDate && endDate) {
+  setSelectedDay({ startDate: date, endDate: null });
+} else {
+  setSelectedDay({ startDate: date, endDate: null });
+}
+  }
+const selectDates = () => {
+  const { startDate, endDate } = selectedDay;
 
+    console.log("Updated selectedDay:",  startDate, endDate )
+
+    setIsOpen(false);
+  };
 
   return (
     <div className="date-picker">
@@ -74,30 +89,10 @@ const Index = ({ autoClose, PopUp, year, month }: Props) => {
             </div>
         
           </div>
-          <div className="time-inputs">
-            <div className="time-input">
-              <label>Time:</label>
-              <input type="checkbox" />
-            </div>
-            <div className="time-input">
-              <label>Hour:</label>
-              <input type="number" min="1" max="12" defaultValue="12" />
-            </div>
-            <div className="time-input">
-              <label>Min:</label>
-              <input type="number" min="0" max="59" defaultValue="00" />
-            </div>
-            <div className="time-input">
-              <label>AM/PM:</label>
-              <select>
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-          </div>
+     <TimeControler/>
           <div className="button-container">
             <button className="button cancel">CANCEL</button>
-            <button className="button add">ADD</button>
+            <button className="button add" onClick={selectDates}>ADD</button>
           </div>
         
           
