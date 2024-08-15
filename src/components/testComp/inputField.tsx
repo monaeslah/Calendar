@@ -1,10 +1,22 @@
-import React from "react";
-import { InputFields } from "../utilities/interface";
-const Input = (props: InputFields) => (
-  <div className="input-group">
-    <label>{props.label}</label>
-    <input type={props.type} value={props.value} onChange={props.onChange} />
-  </div>
-);
+import { PropsWithChildren } from "react";
 
+interface InputFieldProps {
+  className?: string;
+  label?: string;
+  iconBefore?: string;
+  iconAfter?: string;
+}
+
+const Input = (props: PropsWithChildren<InputFieldProps>) => {
+  return (
+    <div className="inputContainer">
+      {props.label && <p>{props.label}</p>}
+      <div className={props.className}>
+        {props.iconBefore && <img src={props.iconBefore} alt="Input icon" />}
+        {props.children}
+        {props.iconAfter && <img src={props.iconAfter} alt="Input icon" />}
+      </div>
+    </div>
+  );
+};
 export default Input;

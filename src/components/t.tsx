@@ -1,6 +1,6 @@
 import * as React from "react"; // ایمپورت کتابخانه React
 import { useState } from "react"; // ایمپورت هوک useState از React
-import { DayProps } from "../interfaces"; // ایمپورت اینترفیس DayProps از فایل اینترفیس‌ها
+import { DayProps } from "./utilities/interface"; // ایمپورت اینترفیس DayProps از فایل اینترفیس‌ها
 
 // تعریف کامپوننت تابعی Day و دیکانستراکت کردن پراپرتی‌های مورد نیاز از DayProps
 const Day: React.FC<DayProps> = ({

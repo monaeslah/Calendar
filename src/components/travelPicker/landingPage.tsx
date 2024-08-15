@@ -1,17 +1,35 @@
 import * as React from "react";
-import { Component } from "react";
-import Input from "../testComp/inputField";
-
+import InputField from "../testComp/inputField";
+import DatePicker from "../Datepicker/index";
+import CountrySelector from "../travelPicker/CountrySelector";
 const LandingPage = () => {
+  const handleKeyDown = (event: { key: string }) => {
+    if (event.key === "Enter") {
+    }
+  };
   return (
-    <Input
-      type={""}
-      label={""}
-      value={""}
-      onChange={function (): void {
-        throw new Error("Function not implemented.");
-      }}
-    />
+    <div>
+      <InputField
+        label={"user name"}
+        iconBefore={""}
+        className="inputField smallInput"
+      >
+        <input
+          type="text"
+          value={""}
+          placeholder={"email"}
+          onKeyDown={handleKeyDown}
+          onChange={(e) => e}
+        />
+      </InputField>
+      <DatePicker
+        PopUp={false}
+        autoClose={false}
+        year={new Date().getFullYear()}
+        month={new Date().getMonth()}
+      />
+      <CountrySelector />
+    </div>
   );
 };
 export default LandingPage;

@@ -1,0 +1,12 @@
+.servicesinfoform, .industriesinfoform {
+   .checkbox {
+      display: flex;
+      label {
+         flex: 0.4;
+      }
+   }
+   .checkbox:hover {
+      background-color: #e0e0e0;
+   }
+}
+  

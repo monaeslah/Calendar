@@ -1,0 +1,21 @@
+$spinner-size: 20px;
+$spinner-border-width: 4px;
+
+.spinner {
+  display: flex;
+  width: $spinner-size;
+  height: $spinner-size;
+  border: $spinner-border-width solid $black-blur-light;
+  border-radius: 50%;
+  border-top-color: $primary-blue;
+  animation: spin 1s linear infinite;
+  margin: auto;
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

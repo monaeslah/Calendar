@@ -1,0 +1,27 @@
+.tableContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.rowHeading,
+.tableRow {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.tableRow {
+  padding: 12px 40px;
+  border-bottom: 1px solid $tableRow-border-color;
+}
+.rowHeading {
+  background-color: $rowHeading-background-color;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  padding: 12px 40px;
+}

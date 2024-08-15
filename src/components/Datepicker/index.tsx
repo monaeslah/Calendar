@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { format, addMonths } from "date-fns";
-import DaysOfWeek from "./Datepicker/DayofWeek";
-import FillAllMonth from "./Datepicker/Month";
-import { SelectedDay } from "../interfaces";
-import TimeControler from "./timeControler";
-import CountrySelector from "./travelPicker/CountrySelector";
+import DaysOfWeek from "./DayofWeek";
+import FillAllMonth from "./Month";
+import { SelectedDay } from "../utilities/interface";
+import TimeControler from "../timeControler";
 
 interface Props {
   PopUp: boolean;
@@ -22,7 +21,7 @@ const Index = ({ autoClose, PopUp, year, month }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredDate, setHoveredDate] = useState("");
 
-  const toggleCalendar = () => setIsOpen(true);
+  const toggleCalendar = () => setIsOpen(!isOpen);
 
   const selectDate = (date: Date) => {
     const { startDate, endDate } = selectedDay;
@@ -86,15 +85,16 @@ const Index = ({ autoClose, PopUp, year, month }: Props) => {
           </div>
           <TimeControler />
           <div className="button-container">
-            <button className="button cancel">CANCEL</button>
+            <button className="button cancel" onClick={toggleCalendar}>
+              CANCEL
+            </button>
             <button className="button add" onClick={selectDates}>
               ADD
             </button>
           </div>
         </>
       ) : (
-        // <button onClick={toggleCalendar}>Select Date</button>
-        <CountrySelector />
+        <button onClick={toggleCalendar}>Select Date</button>
       )}
     </div>
   );

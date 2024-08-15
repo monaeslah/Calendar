@@ -1,0 +1,158 @@
+#rfipreview {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  .szh-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .group {
+    button {
+      background-color: transparent;
+      border: none;
+      font-size: 16px;
+      width: 100%;
+    }
+    .fields {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 1px;
+      input,
+      textarea {
+        border: none;
+        width: 100%;
+        padding-left: 8px;
+      }
+      textarea {
+        padding-top: 10px;
+      }
+    }
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 24px 12px;
+      border-radius: 7px;
+      border: 1px solid #f1f2f4;
+      .section-btn {
+        cursor: pointer;
+        // background-image: url("../../assets/images/up-arrow.svg");
+        .up-arrow-icon{
+          margin-left: auto;
+        }
+      }
+    }
+  }
+  .editingvalue {
+    display: flex;
+    position: relative;
+    width: 98%;
+    min-height: 45px;
+    align-self: stretch;
+    border-radius: 7px;
+    border: 1px solid #ced2d6;
+    padding: 1px;
+    background: #fff;
+    margin-bottom: 10px;
+    textarea {
+      min-height: 60px;
+    }
+    textarea,
+    input {
+      border: none;
+    }
+    textarea:focus,
+    input:focus {
+      outline-color: #86cdff;
+      outline-style: solid;
+    }
+    p {
+      padding: 10px;
+    }
+    img {
+      margin-left: auto;
+      position: absolute;
+      right: 0;
+    }
+    .inputLabel {
+      height: 100%;
+    }
+  }
+  .justify-section {
+    display: flex;
+    justify-items: center;
+    img {
+      width: 18px;
+      margin-right: 4px;
+    }
+  }
+  .react-datepicker__input-container {
+    margin-top: 10px;
+  }
+  .multiselect {
+    p {
+      display: block;
+      padding: 5px 10px;
+    }
+  }
+}
+
+#smart-agent {
+   .mainCTA {
+      max-width: 240px;
+   }
+   .introduction  {
+      padding: 20px;
+      
+      h1 {
+         font-size: 24px;
+         font-weight: bold;
+         margin-bottom: 24px;
+      }
+      h3 {
+         font-size: 14px;
+         font-weight: bold;
+      }
+   }
+   .text {
+      flex: 1;
+   }
+   .image {
+      width: 50%;
+      img {
+         width: 100%;
+      }
+   }
+   .container {
+      display: flex;
+      position: relative;
+      padding: 34px;
+      background-color: #FAFCFF;
+      border: 1px solid #E9F2FD;
+      border-radius: 24px;
+      flex-direction: column;
+   }
+   .top {
+      display: flex;
+   }
+   .cta {
+      display: flex;
+  justify-content: end;
+   }
+   .box {
+      min-height: 310px;
+      margin: 24px 40px 20px 0px;
+      padding: 24px;
+      background-color: #E9F2FD;
+      border-radius: 24px;
+      position: relative;
+      img {
+         position: absolute;
+         bottom: 43px;
+         right: -103px;
+      }
+   }
+   
+}

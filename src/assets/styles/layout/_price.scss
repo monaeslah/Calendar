@@ -1,0 +1,12 @@
+.priceHeader {
+  display: flex;
+  background-color: $gray-light;
+  padding: 10px;
+  justify-content: flex-start;
+  align-content: space-between;
+  position: relative;
+}
+
+.priceHeader p {
+  flex: 1;
+}

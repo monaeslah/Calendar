@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { DayProps } from '../interfaces';
+import React, { useState } from "react";
+import { DayProps } from "../utilities/interface";
 
 const Day: React.FC<DayProps> = ({
   disable,
@@ -23,7 +23,7 @@ const Day: React.FC<DayProps> = ({
 
   const handleMouseLeave = () => {
     setIsHover(false);
-    setHoverDate('');
+    setHoverDate("");
   };
 
   const handleClick = () => {
@@ -41,24 +41,24 @@ const Day: React.FC<DayProps> = ({
         setSelectedDate(date);
       }
     }
-    selectDate(new Date(date)); 
+    selectDate(new Date(date));
   };
 
   const renderDayContent = (date: string) => {
-    return date[8] === '0' ? date.slice(9, 10) : date.slice(8, 10);
+    return date[8] === "0" ? date.slice(9, 10) : date.slice(8, 10);
   };
 
   const isBetweenSelected = date > selectedDate && date < selectedDate2;
   const isSelected = date === selectedDate || date === selectedDate2;
- 
 
   return (
     <div
-      className={`dayInThisMonth${isSelected ? ' selected' : ''}${isBetweenSelected ? ' between-selected' : ''}${isHover ? ' hovered' : ''}`}
+      className={`dayInThisMonth${isSelected ? " selected" : ""}${
+        isBetweenSelected ? " between-selected" : ""
+      }${isHover ? " hovered" : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
-      
     >
       {renderDayContent(date)}
     </div>

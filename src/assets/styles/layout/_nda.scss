@@ -1,0 +1,100 @@
+#nda {
+   display: flex;
+
+   .miniHeader {
+      display: flex;
+      align-items: center;
+      p {
+         padding-left: 10px;
+      }
+   }
+   .ndaButton {
+      width: 140px;
+      &.first {
+         margin-left: auto;
+      }
+   }
+
+   .inputContainer {}
+
+   .ndainfo {
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px
+   }
+
+   .generalInfo {
+      margin: 0 24px;
+      h2 {
+         margin-bottom: 30px;
+      }
+   }
+
+   .preview {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px #E0E0E0;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      max-height: 840px;
+   }
+
+   .pager {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1 0 0;
+   }
+
+   .templates {
+      margin: 20px 0;
+      padding: 20px 0 0 0;
+      border-top: 1px solid #e0e0e0;
+   }
+   .arrow {
+      display: flex;
+      padding: 6px 20px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 8px;
+      border-radius: 8px;
+      border: 1px solid #E5E6E7;
+      background: var(--Color-Primary-Bottons, #FFF);
+      box-shadow: 0px 2px 5px 0px rgba(103, 110, 118, 0.08);
+   }
+
+   .fieldContainer {
+      display: table;
+      padding: 15px 0;
+      border-bottom: 1px solid  #F0F0F0;
+   }
+
+   .fieldCell {
+      display: table-cell;
+      padding: 0 10px 0 0;
+   }
+
+   .fieldRow {
+      display: table-row;
+      font-size: 14px;
+      font-weight: normal;
+      p:first-child {
+         width: 150px;
+         font-weight: 600;
+         font-size: 14px;
+      }
+   }
+
+   .inputField {
+      display: flex;
+      height: 29px;
+      border-radius: 8px;
+      border: 0.5px solid #D9D9D9;
+
+      input {
+         min-height: 20px;
+         margin-left: 0px;
+         width: 150px !important;
+      }
+   }
+}
