@@ -73,7 +73,7 @@ const Day: React.FC<DayProps> = ({
         className="dayInThisMonth"
         style={{ backgroundColor: "grey", cursor: "not-allowed" }}
       >
-        {renderDayContent(date)} // نمایش محتوای روز
+        {renderDayContent(date)}
       </div>
     );
   }

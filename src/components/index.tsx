@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { format, addMonths} from "date-fns";
-import DaysOfWeek from "./DayofWeek";
-import FillAllMonth from "./Month";
+import { format, addMonths } from "date-fns";
+import DaysOfWeek from "./Datepicker/DayofWeek";
+import FillAllMonth from "./Datepicker/Month";
 import { SelectedDay } from "../interfaces";
 import TimeControler from "./timeControler";
+import CountrySelector from "./travelPicker/CountrySelector";
 
 interface Props {
   PopUp: boolean;
@@ -13,31 +14,30 @@ interface Props {
 }
 
 const Index = ({ autoClose, PopUp, year, month }: Props) => {
-  const [currentMonth, setCurrentMonth] = useState(new Date(year, month ));
-  const [selectedDay, setSelectedDay] = useState<SelectedDay>({ startDate: null, endDate: null });
+  const [currentMonth, setCurrentMonth] = useState(new Date(year, month));
+  const [selectedDay, setSelectedDay] = useState<SelectedDay>({
+    startDate: null,
+    endDate: null,
+  });
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredDate, setHoveredDate] = useState("");
 
   const toggleCalendar = () => setIsOpen(true);
 
-
-
   const selectDate = (date: Date) => {
     const { startDate, endDate } = selectedDay;
     if (startDate && !endDate && date > startDate) {
       setSelectedDay({ startDate, endDate: date });
-   
-  
-} else if (startDate && endDate) {
-  setSelectedDay({ startDate: date, endDate: null });
-} else {
-  setSelectedDay({ startDate: date, endDate: null });
-}
-  }
-const selectDates = () => {
-  const { startDate, endDate } = selectedDay;
+    } else if (startDate && endDate) {
+      setSelectedDay({ startDate: date, endDate: null });
+    } else {
+      setSelectedDay({ startDate: date, endDate: null });
+    }
+  };
+  const selectDates = () => {
+    const { startDate, endDate } = selectedDay;
 
-    console.log("Updated selectedDay:",  startDate, endDate )
+    console.log("Updated selectedDay:", startDate, endDate);
 
     setIsOpen(false);
   };
@@ -47,58 +47,54 @@ const selectDates = () => {
       {isOpen ? (
         <>
           <div className="header">
-            
             <div className="year-title">{format(currentMonth, " yyyy")}</div>
-           
           </div>
           <div className="calendarContainer">
             <div className="one-month">
-            <div className="first-month">
-         
-              <DaysOfWeek />
-           
-              <FillAllMonth
-              nameOfMonth={format(currentMonth, "MMMM ")}
-                month={currentMonth}
-                selectedDay={selectedDay}
-                selectDate={selectDate}
-                hoveredDate={hoveredDate}
-                setHoveredDate={setHoveredDate}
-                setSelectedDay={setSelectedDay}
-                currentMonth={currentMonth}
-                setCurrentMonth={setCurrentMonth}
-              />
-          
+              <div className="first-month">
+                <DaysOfWeek />
+
+                <FillAllMonth
+                  nameOfMonth={format(currentMonth, "MMMM ")}
+                  month={currentMonth}
+                  selectedDay={selectedDay}
+                  selectDate={selectDate}
+                  hoveredDate={hoveredDate}
+                  setHoveredDate={setHoveredDate}
+                  setSelectedDay={setSelectedDay}
+                  currentMonth={currentMonth}
+                  setCurrentMonth={setCurrentMonth}
+                />
+              </div>
+
+              <div>
+                <DaysOfWeek />
+
+                <FillAllMonth
+                  month={addMonths(currentMonth, 1)}
+                  nameOfMonth={format(addMonths(currentMonth, 1), "MMMM ")}
+                  selectedDay={selectedDay}
+                  selectDate={selectDate}
+                  hoveredDate={hoveredDate}
+                  setHoveredDate={setHoveredDate}
+                  setSelectedDay={setSelectedDay}
+                  currentMonth={currentMonth}
+                  setCurrentMonth={setCurrentMonth}
+                />
+              </div>
             </div>
-          
-            <div >
-              <DaysOfWeek />
-            
-              <FillAllMonth
-                month={addMonths(currentMonth, 1)}
-                nameOfMonth=  {format(addMonths(currentMonth, 1), "MMMM ")}
-                selectedDay={selectedDay}
-                selectDate={selectDate}
-                hoveredDate={hoveredDate}
-                setHoveredDate={setHoveredDate}
-                setSelectedDay={setSelectedDay}
-                currentMonth={currentMonth}
-                setCurrentMonth={setCurrentMonth}
-              />
-            </div>
-            </div>
-        
           </div>
-     <TimeControler/>
+          <TimeControler />
           <div className="button-container">
             <button className="button cancel">CANCEL</button>
-            <button className="button add" onClick={selectDates}>ADD</button>
+            <button className="button add" onClick={selectDates}>
+              ADD
+            </button>
           </div>
-        
-          
         </>
       ) : (
-        <button onClick={toggleCalendar}>Select Date</button>
+        // <button onClick={toggleCalendar}>Select Date</button>
+        <CountrySelector />
       )}
     </div>
   );
