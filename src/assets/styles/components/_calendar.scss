@@ -1,11 +1,18 @@
 .date-picker {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  .year-title{
+  position: relative;
+  .year-title {
     margin: auto;
+  }
+  .opened_calendar {
+    position: absolute;
+    top: 100%; /* Positions it directly below the input field */
+    left: 0;
+    width: 100%; /* Ensure it aligns with the input field width */
+    margin-top: 10px;
+    z-index: 10; /* Ensure it's above other elements */
+    display: flex;
+    flex-direction: column;
   }
   .header {
     display: flex;
@@ -15,7 +22,6 @@
     font-size: 20px;
     font-weight: bold;
     color: #00796b;
-  
   }
   .calendarContainer {
     display: flex;
@@ -25,58 +31,55 @@
     min-height: 350px;
     padding: 17px;
     flex-direction: row;
-    .first-month{
-     
-        border-right:1px solid #00796b;
-      
+    .first-month {
+      border-right: 1px solid #00796b;
     }
-    .one-month{
-    display: flex;
-padding: 10px;
+    .one-month {
+      display: flex;
+      padding: 10px;
       border-radius: 8px;
       border: 1px solid #e0e0e0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+  }
 
-  }
-  
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  button{
-    color: #00796b;
-    border: none;
-    font-size: 22px;
-    font-weight: bold;
-  }
-  .button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .cancel {
-    background-color: #FFFFFF;
-    color: #000000;
-    border: 1px solid #E0E0E0;
-  }
-  
-  .add {
-    background-color: #4CAF50;
-    color: #FFFFFF;
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    button {
+      color: #00796b;
+      border: none;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .cancel {
+      background-color: #ffffff;
+      color: #000000;
+      border: 1px solid #e0e0e0;
+    }
+
+    .add {
+      background-color: #4caf50;
+      color: #ffffff;
+    }
   }
 }
-}
-.month-grid{
+.month-grid {
   gap: 5px;
   background-color: white;
 
-  
   padding: 10px;
- 
+
   height: 350px;
 
   .month-name {
@@ -87,9 +90,7 @@ padding: 10px;
   }
   .calendarMonth {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); 
-   
-   
+    grid-template-columns: repeat(7, 1fr);
   }
   .dayInThisMonth {
     width: 40px;
@@ -101,27 +102,26 @@ padding: 10px;
     border: 1px solid transparent;
     border-radius: 50%;
     transition: background-color 0.3s, border-color 0.3s;
-&.selected {
-  
-    background-color: #00796B;
-    color: #FFFFFF;
+    &.selected {
+      background-color: #00796b;
+      color: #ffffff;
+    }
+
+    &.between-selected {
+      background-color: #b2dfdb;
+      color: #000000;
+    }
+    &.hovered {
+      background-color: #e0e0e0;
+    }
   }
-  
-  &.between-selected {
-    background-color: #B2DFDB;
-    color: #000000;
-  }
-  &.hovered {
-    background-color: #e0e0e0;
-  }
-}
 }
 .days-of-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   margin-bottom: 10px;
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   color: #000000;
   .dayHeader {
@@ -133,10 +133,7 @@ padding: 10px;
     align-content: center;
     align-items: center;
   }
-  
 }
-
-
 
 .time-inputs {
   display: flex;
@@ -155,16 +152,38 @@ padding: 10px;
       height: 30px;
       text-align: center;
       font-size: 16px;
-      border: 1px solid #E0E0E0;
+      border: 1px solid #e0e0e0;
       border-radius: 4px;
       margin-right: 5px;
     }
   }
 }
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 
+  label {
+    font-size: 14px;
+    color: #000000;
+    margin-right: 10px;
+  }
 
+  .date-button {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #ffffff;
+    cursor: pointer;
+    width: 100%;
+    height: 60px;
+    max-width: 150px;
+    text-align: center;
 
-
-
-
-
+    &:disabled {
+      background-color: #f0f0f0;
+      cursor: not-allowed;
+    }
+  }
+}

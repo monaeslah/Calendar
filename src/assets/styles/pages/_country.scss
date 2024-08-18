@@ -1,0 +1,10 @@
+#destination {
+  display: flex;
+  gap: 10px;
+  .country_selection {
+    height: 60px;
+    .country_selection {
+      height: 30px;
+    }
+  }
+}

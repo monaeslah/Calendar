@@ -1,30 +1,33 @@
 import React, { useState } from "react";
-import { format, addDays } from "date-fns";
-
-interface Props {
-  PopUp: boolean;
-  autoClose: boolean;
+import classNames from "classnames";
+interface ButtonProps {
+  label: string;
+  onClick: () => void;
+  disabled?: boolean;
+  size?: "small" | "medium" | "large" | "xlarge";
+  enable?: boolean;
+  className?: string;
 }
-interface DateInputProps {
-   label: string;
-   value: string;
-   onChange: (value: string) => void;
- }
- 
- interface ButtonProps {
-   label: string;
-   onClick: () => void;
-   disabled?: boolean;
- }
-const Button: React.FC<ButtonProps> = ({
-  label,
-  onClick,
-  disabled = false,
-}) => {
+const Button = (props: ButtonProps) => {
+  const buttonClasses = classNames(
+    "mainCTA",
+    {
+      buttonS: props.size === "small",
+      buttonM: props.size === "medium",
+      buttonL: props.size === "large",
+      buttonXL: props.size === "xlarge",
+    },
+    props.className
+  );
   return (
-    <button onClick={onClick} disabled={disabled}>
-      {label}
-    </button>
+    <div
+      className={`${buttonClasses} ${
+        props.enable ? "pointer" : "not_allowed "
+      }`}
+      onClick={props.enable ? props.onClick : undefined}
+    >
+      <span className="innerButton">{props.label}</span>
+    </div>
   );
 };
-export default Button
+export default Button;

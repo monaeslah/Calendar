@@ -5,21 +5,22 @@
 
   .inputField {
     display: flex;
-    padding: 1px 14px;
+
     margin: 8px 0;
     align-items: center;
     box-shadow: $input-field-box-shadow;
     border-radius: 7px;
     transition: box-shadow 0.3s, border-color 0.3s;
+
     &.largeInput {
-      width: 620px;
+      width: 320px;
     }
 
     &.mediumInput {
-      width: 500px;
+      width: 240px;
     }
     &.smallInput {
-      width: 320px;
+      width: 160px;
     }
     input {
       border: none;

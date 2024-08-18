@@ -1,0 +1,11 @@
+.landing {
+  display: flex;
+  padding: 1px 14px;
+  margin: 8px 0;
+  align-items: center;
+  box-shadow: $input-field-box-shadow;
+  border-radius: 7px;
+  transition: box-shadow 0.3s, border-color 0.3s;
+  background: #071f3c;
+  gap: 30px;
+}

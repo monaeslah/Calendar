@@ -4,7 +4,15 @@
   color: $primary-blue;
   padding-top: 20px;
 }
-
+.mainCTA {
+  margin: 10px 0;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #ffffff;
+  height: 60px;
+}
 //resued buttons
 .tripleLargeButton,
 .twoExtraLargeButton,
@@ -15,33 +23,20 @@
 .extraSmallButton {
   max-height: 40px;
 
-  &.tripleLargeButton {
-    width: 288px;
-    max-height: 50px;
+  &.buttonXL {
+    width: 320px;
   }
 
-  &.twoExtraLargeButton {
-    width: 183px;
+  &.buttonL {
+    width: 240px;
   }
 
-  &.extraLargeButton {
+  &.buttonM {
     width: 160px;
   }
 
-  &.largeButton {
-    width: 156px;
-  }
-
-  &.mediumButton {
-    width: 138px;
-  }
-
-  &.smallButton {
-    width: 134px;
-  }
-
-  &.extraSmallButton {
-    width: 90px;
+  &.buttonS {
+    width: 80px;
   }
 }
 

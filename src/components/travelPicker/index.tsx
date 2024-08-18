@@ -20,6 +20,7 @@ const Index = () => {
           placeholder={"email"}
           onKeyDown={handleKeyDown}
           onChange={(e) => e}
+          className="smallInput"
         />
       </InputField>
     </div>
