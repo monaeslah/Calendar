@@ -1,0 +1,22 @@
+#footer {
+  text-align: right;
+  padding: 10px;
+  background-color: $white-soft;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  border-color: $gray-medium-light;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  .footerLinks {
+    display: flex;
+    justify-content: end;
+    padding: 0 10px;
+    div {
+      padding: 0 10px;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,151 @@
+.buttons {
+  display: flex;
+  justify-content: center;
+  color: $primary-blue;
+  padding-top: 20px;
+}
+.mainCTA {
+  margin: 10px 0;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+
+  height: 60px;
+}
+//resued buttons
+.tripleLargeButton,
+.twoExtraLargeButton,
+.extraLargeButton,
+.largeButton,
+.mediumButton,
+.smallButton,
+.extraSmallButton {
+  max-height: 40px;
+
+  &.buttonXL {
+    width: 320px;
+  }
+
+  &.buttonL {
+    width: 240px;
+  }
+
+  &.buttonM {
+    width: 160px;
+  }
+
+  &.buttonS {
+    width: 80px;
+  }
+}
+
+.adjust-p {
+  position: absolute;
+}
+.background-color {
+  margin: auto;
+  display: flex;
+  padding: 9px 16px;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: $main-cta-box-shadow;
+  min-height: 38px;
+  background: #ef547c;
+  color: white;
+
+  img {
+    margin-left: auto;
+    width: 18px;
+  }
+
+  &.not_allowed {
+    color: $color-text-black;
+    cursor: not-allowed;
+    background-color: $gray-diable;
+  }
+
+  &.primary-btn {
+    background-color: $primary-blue;
+    color: $primary-white;
+    cursor: pointer;
+  }
+}
+
+//common buttons
+.cancel {
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+.closeButton {
+  width: 20px;
+}
+
+.reset-btn {
+  margin: 30px auto;
+}
+
+.home-button {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.icon-position {
+  img {
+    margin-left: 12px;
+    width: 13px;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.mb-auto {
+  margin-bottom: auto;
+}
+
+.ok-green-btn {
+  display: flex;
+  height: 40px;
+  padding: 5px 8px;
+  align-items: center;
+  gap: 10px;
+  background: $primary-green;
+  box-shadow: $ok-button-shadow;
+  border: $primary-border;
+}
+
+.lsptender-open-btn {
+  border-radius: 8px;
+  background: $primary-white;
+  box-shadow: $tender-btn-open-shadow;
+}
+
+.lsptender-control-status {
+  color: $reject;
+  height: 45px;
+}
+
+.rfqtab {
+  margin-bottom: 20px;
+  li {
+    border: none;
+    padding: 20px;
+    background-color: #fafaff;
+    border-radius: 10px;
+    margin: 0 20px;
+    &.react-tabs__tab--selected {
+      background-color: #e0e0ff;
+    }
+  }
+}

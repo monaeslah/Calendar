@@ -1,0 +1,302 @@
+[
+  {
+    "country_city": "United States, New York"
+  },
+  {
+    "country_city": "United States, Los Angeles"
+  },
+  {
+    "country_city": "United States, Chicago"
+  },
+  {
+    "country_city": "United States, Houston"
+  },
+  {
+    "country_city": "United States, Miami"
+  },
+  {
+    "country_city": "Canada, Toronto"
+  },
+  {
+    "country_city": "Canada, Vancouver"
+  },
+  {
+    "country_city": "Canada, Montreal"
+  },
+  {
+    "country_city": "Canada, Calgary"
+  },
+  {
+    "country_city": "Canada, Ottawa"
+  },
+  {
+    "country_city": "Germany, Berlin"
+  },
+  {
+    "country_city": "Germany, Munich"
+  },
+  {
+    "country_city": "Germany, Frankfurt"
+  },
+  {
+    "country_city": "Germany, Hamburg"
+  },
+  {
+    "country_city": "Germany, Cologne"
+  },
+  {
+    "country_city": "United Kingdom, London"
+  },
+  {
+    "country_city": "United Kingdom, Manchester"
+  },
+  {
+    "country_city": "United Kingdom, Birmingham"
+  },
+  {
+    "country_city": "United Kingdom, Glasgow"
+  },
+  {
+    "country_city": "United Kingdom, Liverpool"
+  },
+  {
+    "country_city": "Australia, Sydney"
+  },
+  {
+    "country_city": "Australia, Melbourne"
+  },
+  {
+    "country_city": "Australia, Brisbane"
+  },
+  {
+    "country_city": "Australia, Perth"
+  },
+  {
+    "country_city": "Australia, Adelaide"
+  },
+  {
+    "country_city": "India, Mumbai"
+  },
+  {
+    "country_city": "India, Delhi"
+  },
+  {
+    "country_city": "India, Bangalore"
+  },
+  {
+    "country_city": "India, Hyderabad"
+  },
+  {
+    "country_city": "India, Chennai"
+  },
+  {
+    "country_city": "France, Paris"
+  },
+  {
+    "country_city": "France, Marseille"
+  },
+  {
+    "country_city": "France, Lyon"
+  },
+  {
+    "country_city": "France, Toulouse"
+  },
+  {
+    "country_city": "France, Nice"
+  },
+  {
+    "country_city": "Italy, Rome"
+  },
+  {
+    "country_city": "Italy, Milan"
+  },
+  {
+    "country_city": "Italy, Naples"
+  },
+  {
+    "country_city": "Italy, Turin"
+  },
+  {
+    "country_city": "Italy, Palermo"
+  },
+  {
+    "country_city": "Japan, Tokyo"
+  },
+  {
+    "country_city": "Japan, Osaka"
+  },
+  {
+    "country_city": "Japan, Nagoya"
+  },
+  {
+    "country_city": "Japan, Sapporo"
+  },
+  {
+    "country_city": "Japan, Fukuoka"
+  },
+  {
+    "country_city": "Brazil, São Paulo"
+  },
+  {
+    "country_city": "Brazil, Rio de Janeiro"
+  },
+  {
+    "country_city": "Brazil, Brasília"
+  },
+  {
+    "country_city": "Brazil, Salvador"
+  },
+  {
+    "country_city": "Brazil, Fortaleza"
+  },
+  {
+    "country_city": "Mexico, Mexico City"
+  },
+  {
+    "country_city": "Mexico, Guadalajara"
+  },
+  {
+    "country_city": "Mexico, Monterrey"
+  },
+  {
+    "country_city": "Mexico, Puebla"
+  },
+  {
+    "country_city": "Mexico, Tijuana"
+  },
+  {
+    "country_city": "China, Beijing"
+  },
+  {
+    "country_city": "China, Shanghai"
+  },
+  {
+    "country_city": "China, Guangzhou"
+  },
+  {
+    "country_city": "China, Shenzhen"
+  },
+  {
+    "country_city": "China, Chengdu"
+  },
+  {
+    "country_city": "Russia, Moscow"
+  },
+  {
+    "country_city": "Russia, Saint Petersburg"
+  },
+  {
+    "country_city": "Russia, Novosibirsk"
+  },
+  {
+    "country_city": "Russia, Yekaterinburg"
+  },
+  {
+    "country_city": "Russia, Kazan"
+  },
+  {
+    "country_city": "South Africa, Johannesburg"
+  },
+  {
+    "country_city": "South Africa, Cape Town"
+  },
+  {
+    "country_city": "South Africa, Durban"
+  },
+  {
+    "country_city": "South Africa, Pretoria"
+  },
+  {
+    "country_city": "South Africa, Port Elizabeth"
+  },
+  {
+    "country_city": "Argentina, Buenos Aires"
+  },
+  {
+    "country_city": "Argentina, Córdoba"
+  },
+  {
+    "country_city": "Argentina, Rosario"
+  },
+  {
+    "country_city": "Argentina, Mendoza"
+  },
+  {
+    "country_city": "Argentina, La Plata"
+  },
+  {
+    "country_city": "Spain, Madrid"
+  },
+  {
+    "country_city": "Spain, Barcelona"
+  },
+  {
+    "country_city": "Spain, Valencia"
+  },
+  {
+    "country_city": "Spain, Seville"
+  },
+  {
+    "country_city": "Spain, Zaragoza"
+  },
+  {
+    "country_city": "South Korea, Seoul"
+  },
+  {
+    "country_city": "South Korea, Busan"
+  },
+  {
+    "country_city": "South Korea, Incheon"
+  },
+  {
+    "country_city": "South Korea, Daegu"
+  },
+  {
+    "country_city": "South Korea, Daejeon"
+  },
+  {
+    "country_city": "Turkey, Istanbul"
+  },
+  {
+    "country_city": "Turkey, Ankara"
+  },
+  {
+    "country_city": "Turkey, Izmir"
+  },
+  {
+    "country_city": "Turkey, Bursa"
+  },
+  {
+    "country_city": "Turkey, Adana"
+  },
+  {
+    "country_city": "Egypt, Cairo"
+  },
+  {
+    "country_city": "Egypt, Alexandria"
+  },
+  {
+    "country_city": "Egypt, Giza"
+  },
+  {
+    "country_city": "Egypt, Shubra El Kheima"
+  },
+  {
+    "country_city": "Egypt, Port Said"
+  },
+  {
+    "country_city": "Indonesia, Jakarta"
+  },
+  {
+    "country_city": "Indonesia, Surabaya"
+  },
+  {
+    "country_city": "Indonesia, Bandung"
+  },
+  {
+    "country_city": "Indonesia, Medan"
+  },
+  {
+    "country_city": "Indonesia, Bekasi"
+  }
+]

@@ -1,0 +1,39 @@
+#bar {
+
+margin-top:50px;
+  .menubar {
+    position: fixed;
+    overflow-y: scroll;
+    padding-bottom: 60px;
+    background-color: $primary-blue;
+    color: $primary-white;
+    padding-top: 10px;
+    width: 250px;
+    height: 100%;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+  
+  }
+  .menubar::-webkit-scrollbar {
+    display: none; 
+  }
+  .menuitem.isopen {
+    background: white;
+    transition: background 0.5s ease-out;
+    color: $primary-blue;
+  }
+
+  .menuitem {
+    background: $blue-primary-disabe;
+    transition: background 0.5s ease-out;
+    border-radius: 8px;
+    margin: 12px 10px;
+    height: 48px;
+    padding: 14px;
+    cursor: pointer;
+  }
+
+  .isopen {
+    grid-template-rows: 1fr;
+  }
+}

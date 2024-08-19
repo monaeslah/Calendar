@@ -1,0 +1,22 @@
+.errorMessage {
+  display: flex;
+justify-content: center;
+  padding: 14px 22px;
+ 
+  color: $primary-blue;
+  margin: 20px 0;
+}
+.reset{
+  text-decoration: underline  $primary-blue;
+  text-underline-offset: 0.2px;
+  cursor: pointer;
+}
+.msg-area{
+min-width: 400px;
+text-align: center;
+
+}
+.innerMessage {
+  margin-left: 5px;
+  margin-right: 5px;
+}

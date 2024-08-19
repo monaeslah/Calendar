@@ -9,7 +9,7 @@ import {
 } from "date-fns";
 import Day from "./Day";
 
-import { SelectedDay } from "../interfaces";
+import { SelectedDay } from "../utilities/interface";
 
 interface FillAllMonthProps {
   month: Date;
@@ -50,10 +50,9 @@ const FillAllMonth: React.FC<FillAllMonthProps> = ({
   return (
     <div className="month-grid">
       <div className="button-container">
-
-      <button onClick={previousMonth}>&lt;</button>
-      <div className="month-name"> {nameOfMonth}</div>
-      <button onClick={nextMonth}>&gt;</button>
+        <button onClick={previousMonth}>&lt;</button>
+        <div className="month-name"> {nameOfMonth}</div>
+        <button onClick={nextMonth}>&gt;</button>
       </div>
       <div className="calendarMonth">
         {calendarDays.map((date, index) => (
@@ -76,10 +75,10 @@ const FillAllMonth: React.FC<FillAllMonthProps> = ({
                 min={"2024-06-01"}
                 max={"2024-12-31"}
                 setHoverDate={setHoveredDate}
-                setSelectedDate={(date) =>
+                setSelectedDate={(date: string | number | Date) =>
                   setSelectedDay({ ...selectedDay, startDate: new Date(date) })
                 }
-                setSelectedDate2={(date) =>
+                setSelectedDate2={(date: string | number | Date) =>
                   setSelectedDay({ ...selectedDay, endDate: new Date(date) })
                 }
                 activeInput={1}
