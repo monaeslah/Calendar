@@ -64,7 +64,7 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
       <InputField
         label={""}
         iconBefore={""}
-        className="inputField country_selection mediumInput"
+        className="inputField country_selection smallInput"
       >
         <Select
           options={options}
@@ -79,7 +79,7 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
       <InputField
         label={""}
         iconBefore={""}
-        className="inputField country_selection mediumInput"
+        className="inputField country_selection smallInput"
       >
         <Select
           options={options}

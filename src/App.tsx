@@ -4,7 +4,7 @@ import LandingPage from "./components/travelPicker/landingPage";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <LandingPage />
     </div>
   );

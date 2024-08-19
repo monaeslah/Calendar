@@ -10,9 +10,16 @@ interface Props {
   autoClose: boolean;
   year: number;
   month: number;
+  onDatesChange: (startDate: string, endDate: string) => void; // Add this prop
 }
 
-const Index = ({ autoClose, PopUp, year, month }: Props) => {
+const DatePicker = ({
+  autoClose,
+  PopUp,
+  year,
+  month,
+  onDatesChange,
+}: Props) => {
   const [currentMonth, setCurrentMonth] = useState(new Date(year, month));
   const [selectedDay, setSelectedDay] = useState<SelectedDay>({
     startDate: null,
@@ -39,7 +46,14 @@ const Index = ({ autoClose, PopUp, year, month }: Props) => {
   const selectDates = () => {
     const { startDate, endDate } = selectedDay;
     console.log("Updated selectedDay:", startDate, endDate);
+    if (startDate && endDate) {
+      onDatesChange(
+        format(startDate, "yyyy-MM-dd"),
+        format(endDate, "yyyy-MM-dd")
+      ); // Pass the selected dates to the parent
+    }
     setIsOpen(false);
+    console.log(startDate, endDate);
   };
 
   // Handle click outside of the calendar to close it
@@ -136,4 +150,4 @@ const Index = ({ autoClose, PopUp, year, month }: Props) => {
   );
 };
 
-export default Index;
+export default DatePicker;

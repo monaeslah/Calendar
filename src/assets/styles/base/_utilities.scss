@@ -10,12 +10,14 @@
   text-align: center;
 }
 
-.main {
+.app {
   border: 0;
   max-width: 1440px;
+  height: 50vh;
+  position: relative;
   background-color: $primary-white;
   margin: 0 auto;
-
+  background-image: url('../../img/o-AIRPORT-900.jpg');
   .mainContent {
     display: grid;
     grid-template-columns: 250px auto;

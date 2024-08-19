@@ -55,6 +55,7 @@ const PassengerCounterDropdown: React.FC<PassengerCounterProps> = ({
         label={`Passengers: ${adults + children}`}
         onClick={toggleDropdown}
         enable={true}
+        className="passenger"
       />
       {isDropdownOpen && (
         <div className="dropdown-content">
