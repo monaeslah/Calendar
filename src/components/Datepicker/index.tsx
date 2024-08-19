@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { format, addMonths } from "date-fns";
 import DaysOfWeek from "./DayofWeek";
 import FillAllMonth from "./Month";
@@ -20,6 +20,7 @@ const Index = ({ autoClose, PopUp, year, month }: Props) => {
   });
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredDate, setHoveredDate] = useState("");
+  const calendarRef = useRef<HTMLDivElement>(null);
 
   const toggleCalendar = () => setIsOpen(!isOpen);
 
@@ -35,21 +36,28 @@ const Index = ({ autoClose, PopUp, year, month }: Props) => {
     }
   };
 
-  const handleStartDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const startDate = new Date(e.target.value);
-    setSelectedDay({ ...selectedDay, startDate });
-  };
-
-  const handleEndDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const endDate = new Date(e.target.value);
-    setSelectedDay({ ...selectedDay, endDate });
-  };
-
   const selectDates = () => {
     const { startDate, endDate } = selectedDay;
     console.log("Updated selectedDay:", startDate, endDate);
     setIsOpen(false);
   };
+
+  // Handle click outside of the calendar to close it
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        calendarRef.current &&
+        !calendarRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [calendarRef]);
 
   return (
     <div className="date-picker">
@@ -77,7 +85,7 @@ const Index = ({ autoClose, PopUp, year, month }: Props) => {
       </div>
 
       {isOpen && (
-        <div className="opened_calendar">
+        <div className="opened_calendar" ref={calendarRef}>
           <div className="header">
             <div className="year-title">{format(currentMonth, " yyyy")}</div>
           </div>

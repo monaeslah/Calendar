@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import countries from "./countries.json";
 import InputField from "../testComp/inputField";
@@ -8,25 +8,40 @@ interface Option {
   value: string;
 }
 
-interface CountrySelectorProps {}
+interface CountrySelectorProps {
+  onDepartureChange: (departureCity: string) => void; // برای مبدأ
+  onArrivalChange: (arrivalCity: string) => void; // برای مقصد
+}
 
-const CountrySelector: React.FC<CountrySelectorProps> = () => {
+const CountrySelector: React.FC<CountrySelectorProps> = ({
+  onDepartureChange,
+  onArrivalChange,
+}) => {
   const [selectedDeparture, setSelectedDeparture] = useState<Option | null>(
     null
   );
-  const [selectedReturn, setSelectedReturn] = useState<Option | null>(null);
+  const [selectedArrival, setSelectedArrival] = useState<Option | null>(null);
 
+  // داده‌ها برای `react-select`
   const options = countries.map((entry) => ({
     label: entry.country_city,
     value: entry.country_city,
   }));
 
+  // هندلر برای تغییر مبدأ
   const handleDepartureChange = (option: Option | null) => {
     setSelectedDeparture(option);
+    if (option) {
+      onDepartureChange(option.value); // مبدأ به والد ارسال می‌شود
+    }
   };
 
-  const handleReturnChange = (option: Option | null) => {
-    setSelectedReturn(option);
+  // هندلر برای تغییر مقصد
+  const handleArrivalChange = (option: Option | null) => {
+    setSelectedArrival(option);
+    if (option) {
+      onArrivalChange(option.value); // مقصد به والد ارسال می‌شود
+    }
   };
 
   const customStyles = {
@@ -68,8 +83,8 @@ const CountrySelector: React.FC<CountrySelectorProps> = () => {
       >
         <Select
           options={options}
-          value={selectedReturn}
-          onChange={handleReturnChange}
+          value={selectedArrival}
+          onChange={handleArrivalChange}
           placeholder="Select Return"
           styles={customStyles}
           classNamePrefix="react-select"
